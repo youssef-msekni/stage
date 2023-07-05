@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import { Text, View, StyleSheet, Button,Image ,TextInput } from 'react-native';
 import { FontAwesome,Ionicons,Entypo } from '@expo/vector-icons'
 
-const App = () => {
+const NewPassword = () => {
   const [text, onChangeText] = React.useState('Useless Text');
   return (
     <View style={styles.container}>
@@ -45,7 +45,7 @@ const App = () => {
   );
 };
 
-export default App;
+export default NewPassword;
 
 const styles = StyleSheet.create({
   container: {

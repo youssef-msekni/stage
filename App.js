@@ -5,12 +5,18 @@ import SignUppPageTwo from './src/SignUpPageTwo'
 import WelcomePage from './src/welcomePage'
 import Settings from './src/settings'
 import Topic from './src/Topic'
-
-
+import CreateTopic from './src/CreateTopci'
+import AddTag from './src/AddTag'
+import UpdateTopic from './src/UpdateTopic'
+import Reply from './src/Reply'
+import Profile from './src/Profile'
+import Search from './src/Search'
+import Terms from './src/terms'
+import EditProfile from './src/EditProflie'
 
 const App =()=> {
   return(
-    <Topic/>
+    <EditProfile/>
   )
 }
 const styles = StyleSheet.create( {

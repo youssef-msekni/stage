@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View ,Image,TextInput } from 'react-native'
+import { StyleSheet, Text, View ,Image,TextInput,Button,Alert } from 'react-native'
 import { FontAwesome,Ionicons,Entypo } from '@expo/vector-icons'
 
 const SignUp =()=> {
@@ -45,8 +45,15 @@ const SignUp =()=> {
         placeholder='Confirm Password'
       />
     </View>
+    <View style={{marginTop:20}}>
+      <Button
+        title="Next"
+        color='#6495ed'
+        onPress={() => Alert.alert('Go to SignUpPageTwo')}
+        />
+    </View>
 
-      <View style={{flexDirection: 'row', alignItems: 'center',paddingHorizontal:15 ,marginTop:60}}>
+      <View style={{flexDirection: 'row', alignItems: 'center',paddingHorizontal:15 ,marginTop:30}}>
             <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
                 <View>
                     <Text style={{width: 50, textAlign: 'center',fontSize:22}}>Or</Text>
@@ -54,13 +61,13 @@ const SignUp =()=> {
                     <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
               </View>
               <View>
-                <Text style={{marginTop:5, fontSize:18}}>Sign Up From  </Text>
+                <Text style={{marginTop:5, fontSize:18}}>    Sign Up From  </Text>
               </View> 
               <View style={styles.photo}>
                   
-                    <Entypo onPress={()=>{}} name="facebook" size={50} color="blue" style={{ marginRight: 10 }} />
-                    <FontAwesome onPress={()=>{}} name="google-plus-square" size={50} color="red" style={{ marginHorizontal: 10 }} />
-                    <Ionicons onPress={()=>{}} name="logo-apple" size={55} color="black" style={{ marginLeft: 10 }} /> 
+                  <Entypo onPress={()=>{Alert.alert('sign with facebook')}} name="facebook" size={50} color="blue" style={{ marginRight: 20 }} />
+                  <FontAwesome onPress={()=>{Alert.alert('sign with google')}} name="google-plus-square" size={50} color="red" style={{ marginHorizontal: 20 }} />
+                  <Ionicons onPress={()=>{Alert.alert('sign with apple')}} name="logo-apple" size={55} color="black" style={{ marginLeft: 20 }} /> 
                          
               </View>
                                  
@@ -85,7 +92,7 @@ const styles = StyleSheet.create( {
   },
   photo:{
     alignItems:'center',
-    marginTop:80,
+    marginTop:40,
     flexDirection:'row',
   },
 });

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Text, View, StyleSheet, Button,Alert } from 'react-native';
 
-const App = () => {
+const Trems = () => {
   const [text, onChangeText] = React.useState('Useless Text');
   return (
     <View style={styles.container}>
@@ -27,7 +27,7 @@ const App = () => {
   );
 };
 
-export default App;
+export default Trems;
 
 const styles = StyleSheet.create({
   container: {

@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import { Text, View, StyleSheet, Button,Image ,TextInput } from 'react-native';
 import { FontAwesome,Ionicons,Entypo } from '@expo/vector-icons'
-const App = () => {
+
+const ResetPasswordEnterEmail = () => {
   const [text, onChangeText] = React.useState('Useless Text');
   return (
     <View style={styles.container}>
-      <Image source={require('./assets/img1.png')}/>
+      <Image source={require('../assets/img1.png')}/>
       <Text style={{fontSize:24}}>
         Reset Password 
       </Text>
@@ -43,7 +44,7 @@ const App = () => {
   );
 };
 
-export default App;
+export default ResetPasswordEnterEmail;
 
 const styles = StyleSheet.create({
   container: {
