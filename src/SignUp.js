@@ -1,8 +1,18 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { StyleSheet, Text, View ,Image,TextInput,Button,Alert } from 'react-native'
 import { FontAwesome,Ionicons,Entypo } from '@expo/vector-icons'
+import SignUpPageTwo from './SignUpPageTwo'
 
 const SignUp =()=> {
+
+  const [ShowSignUpPageTwo, setShowSignUpPageTwo] = useState(false);
+    const handleSignUpPageTwoPress = () => {
+        setShowSignUpPageTwo(true);
+  };
+  if (ShowSignUpPageTwo){
+        return <SignUpPageTwo/>;
+    }
+    else{
 
   return (
     <View style={styles.container}>
@@ -49,7 +59,7 @@ const SignUp =()=> {
       <Button
         title="Next"
         color='#6495ed'
-        onPress={() => Alert.alert('Go to SignUpPageTwo')}
+        onPress={handleSignUpPageTwoPress}
         />
     </View>
 
@@ -78,7 +88,7 @@ const SignUp =()=> {
          
     
   )
-}
+}}
 
 const styles = StyleSheet.create( {
   container: {

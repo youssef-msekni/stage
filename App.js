@@ -13,10 +13,13 @@ import Profile from './src/Profile'
 import Search from './src/Search'
 import Terms from './src/terms'
 import EditProfile from './src/EditProfile'
+import SignUpPageTwo from './src/SignUpPageTwo'
+import Login from './src/Login'
+import NavBar from './src/NavBar'
 
 const App =()=> {
   return(
-    <CreateTopic/>
+    <WelcomePage/>
   )
 }
 const styles = StyleSheet.create( {

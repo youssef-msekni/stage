@@ -1,10 +1,19 @@
-import React from 'react'
-import { Text,View,StyleSheet,Image,Button,Alert,useState } from 'react-native'
+import React,{useState} from 'react'
+import { Text,View,StyleSheet,Image,Button,Alert } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import { Ionicons,AntDesign,Fontisto,MaterialCommunityIcons,MaterialIcons,Entypo } from '@expo/vector-icons'; 
-
+import EditProfile from './EditProfile';
+import WelcomePage from './welcomePage';
 
 const Settings=()=>{
+    const [ShowEditProfile, setShowEditProfile] = useState(false);
+    const handleEditProfilePress = () => {
+        setShowEditProfile(true);
+  };
+  if (ShowEditProfile){
+        return <EditProfile/>;
+    }
+    else{
      
     return(
         
@@ -24,7 +33,7 @@ const Settings=()=>{
                 <View style={{marginTop:20}}>
                     <Button 
                         title="Edit profile"
-                        onPress={() => Alert.alert('Edit profile')}
+                        onPress={handleEditProfilePress}
                     />
                 </View>
                 <View style={{backgroundColor:'white',marginTop:20}}>
@@ -50,18 +59,18 @@ const Settings=()=>{
                     <MaterialCommunityIcons  onPress={()=>Alert.alert('Logout')} name="logout" size={30} color="black"   />
                     <Text style={{fontSize:22}}> Logout</Text>
                 </View>
-                <View style={{flexDirection:'row',marginTop:10,backgroundColor:'white'}}>
+                <View style={{flexDirection:'row',marginTop:5,backgroundColor:'white'}}>
                     <View style={{flexDirection:'column'}}>
-                        <MaterialIcons onPress={()=>Alert.alert('Topic')} name="topic" size={40} color="black" style={{ marginRight: 80 }} />
-                        <Text style={{marginRight: 60,fontSize:18}}>Topics</Text>
+                        <MaterialIcons onPress={()=>Alert.alert('Topic')} name="topic" size={30} color="black" style={{ marginRight: 70 }} />
+                        <Text style={{marginRight: 60,fontSize:16,marginBottom:15}}>Topics</Text>
                     </View>
                     <View style={{flexDirection:'column'}}>
-                        <FontAwesome onPress={()=>Alert.alert('Profile')} name="user" size={40} color="black" style={{ marginHorizontal: 60 }} />
-                        <Text style={{ marginHorizontal: 50,fontSize:18 }}>Profile</Text>
+                        <FontAwesome onPress={()=>Alert.alert('Profile')} name="user" size={30} color="black" style={{ marginHorizontal: 60 }} />
+                        <Text style={{ marginHorizontal: 50,fontSize:16,marginBottom:15 }}>Profile</Text>
                     </View>
                     <View style={{flexDirection:'column'}}>
-                        <Entypo onPress={()=>Alert.alert('Followers')} name="users" size={40} color="black" style={{ marginLeft: 80 }} /> 
-                        <Text style={{ marginLeft: 60,fontSize:18 }}>Followers</Text> 
+                        <Entypo onPress={()=>Alert.alert('Followers')} name="users" size={30} color="black" style={{ marginLeft: 80 }} /> 
+                        <Text style={{ marginLeft: 60,fontSize:16 }}> Followers</Text> 
                     </View>
                     
                        
@@ -71,7 +80,7 @@ const Settings=()=>{
             
         
     )
-}
+}}
 const styles = StyleSheet.create({
     container:{
         

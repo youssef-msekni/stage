@@ -1,12 +1,24 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Text, View, StyleSheet, Button,Alert } from 'react-native';
-import { Ionicons,FontAwesome,Feather  } from '@expo/vector-icons'; 
+import { Ionicons,FontAwesome,Feather ,AntDesign } from '@expo/vector-icons'; 
+import Settings from './settings';
 const Topic = () => {
+
+  const [ShowSettings, setShowSettings] = useState(false);
+   const handleSettingsPress = () => {
+        setShowSettings(true);
+  };
+  if (ShowSettings){
+        return <Settings/>;
+    }
+    else{
     return(
         <View style={styles.container}>
             <View style={{flexDirection:'row',marginTop:10,marginLeft:20}}>
                     <Text style={{fontSize:28,marginStart:140,fontWeight: 'bold',fontStyle: 'italic',letterSpacing: 0.5}}>Topic</Text>
                     <Ionicons onPress={()=>Alert.alert('Notification')} name="md-notifications-outline" size={30} color="black" style={{ marginStart:100 }} />
+                    <Text>   </Text>
+                    <AntDesign onPress={handleSettingsPress} name="setting" size={28} color="black" />
                 </View>
               <View style={{flexDirection: 'row',marginTop:15,margin:15,justifyContent: 'space-between',}}>
                     <Button
@@ -121,7 +133,7 @@ const Topic = () => {
                 
         </View>
     )
-}
+}}
 
 
 const styles = StyleSheet.create({

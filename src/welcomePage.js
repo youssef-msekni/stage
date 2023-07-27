@@ -1,8 +1,27 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Text,View,StyleSheet,Image,Button,Alert } from 'react-native'
 import { FontAwesome,Ionicons,Entypo } from '@expo/vector-icons'
+import SignUp from './SignUp'
+import Login from './Login'
 
 const WelcomePage=()=>{
+
+    const [ShowSignUp, setShowSignUp] = useState(false);
+    const handleSignUpPress = () => {
+        setShowSignUp(true);
+  };
+  const [ShowLogin, setShowLogin] = useState(false);
+    const handleLoginPress = () => {
+        setShowLogin(true);
+  };
+
+    if (ShowSignUp){
+        return <SignUp/>;
+    }
+    else if (ShowLogin){
+        return <Login/>;
+    }
+    else {
     return(
        <View style={styles.container}>
             <Image source={require('../assets/img1.png')}/>
@@ -11,7 +30,7 @@ const WelcomePage=()=>{
                     title="SignUp"
                     borderColor={'black'}
                     color='#6495ed'
-                    onPress={() => Alert.alert('SignUp ')}
+                    onPress= {handleSignUpPress}
                 />
             </View>
             <View style={{padding:5, marginTop:5,borderBottomColor: 'red',alignItems: 'center'}}>
@@ -19,7 +38,7 @@ const WelcomePage=()=>{
                     title="Login"
                     borderColor={'black'}
                     color='#6495ed'
-                    onPress={() => Alert.alert('Login')}
+                    onPress={handleLoginPress}
                 />
             </View>
             <View style={{flexDirection: 'row', alignItems: 'center',paddingHorizontal:15 ,marginTop:60}}>
@@ -48,12 +67,18 @@ const WelcomePage=()=>{
 
     )
 }
+}
 const styles = StyleSheet.create({
     container:{
         flex:1,
         backgroundColor:'white',
         marginTop:20,
         alignItems:'center',
+    },
+     photo:{
+        alignItems:'center',
+        marginTop:40,
+        flexDirection:'row',
     },
 })
 export default WelcomePage

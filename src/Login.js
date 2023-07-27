@@ -1,31 +1,30 @@
 import React,{useState} from 'react'
-import { StyleSheet, Text, View ,Image,TextInput,Button,Alert } from 'react-native'
+import { StyleSheet, Text, View ,Image,TextInput,Button,Alert,TouchableOpacity } from 'react-native'
 import { FontAwesome,Ionicons,Entypo } from '@expo/vector-icons'
-import SignUp from './SignUp'
 import Topic from './Topic'
+import SignUp from './SignUp'
 
-const SignUpPageTwo =()=> {
+const Login =()=> {
+
   const [showTopic, setShowTopic] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
-
-  const handleTopicPress = () => {
+    const handleTopicPress = () => {
     setShowTopic(true);
   };
-
   const handleSignUpPress = () => {
     setShowSignUp(true);
   };
-  
   if (showTopic) {
     return <Topic/>;
   } else if (showSignUp) {
     return <SignUp />;
-  } else {
+  } else{
+
   return (
     <View style={styles.container}>
       <Image source={require('../assets/img1.png')}/>
     <View/>
-    <View style={{margin:10,backgroundColor:'white'}}>
+    <View style={{margin:10}}>
         <TextInput
         style={{
           height: 40,
@@ -35,7 +34,7 @@ const SignUpPageTwo =()=> {
           width:250,
           padding:10,
         }}
-        placeholder='Username'
+        placeholder='Email'
       />
        <TextInput
         style={{
@@ -47,37 +46,21 @@ const SignUpPageTwo =()=> {
           padding:10,
           marginVertical:20,
         }}
-        placeholder='Number'
-      />
-      <TextInput
-        style={{
-          height: 40,
-          borderColor: 'gray',
-          borderWidth: 0,
-          borderBottomWidth:2,
-          width:250,
-          padding:5,
-         
-        }}
-        placeholder='Date 30/12/2022'
+        placeholder='Password'
       />
     </View>
-
-    <View style={{padding:5, marginTop:20,borderBottomColor: 'red',alignItems: 'center',flexDirection:'row'}}>
-      <Button 
-          title="Back"
-          borderColor={'black'}
-          color='#6495ed'
-          onPress={handleSignUpPress}
-        />
-        <Text>     </Text>
+    <View style={{marginTop:20}}>
       <Button
-        title="SignUp"
+        title="Login"
         color='#6495ed'
         onPress={handleTopicPress}
         />
-    
+        <Text style={{alignItems:'center',fontSize:16,marginTop:10}}> you don't have an account ? </Text>
+        <TouchableOpacity style={{marginTop:10,fontSize:16}} onPress={handleSignUpPress}>
+            <Text style={{alignItems:'center',color:'blue',fontSize:18,marginLeft:10}}>              Sign in </Text>
+        </TouchableOpacity>
     </View>
+
       <View style={{flexDirection: 'row', alignItems: 'center',paddingHorizontal:15 ,marginTop:30}}>
             <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
                 <View>
@@ -86,7 +69,7 @@ const SignUpPageTwo =()=> {
                     <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
               </View>
               <View>
-                <Text style={{fontSize:18,marginTop:15}}>    Sign Up From  </Text>
+                <Text style={{marginTop:5, fontSize:18}}>    Login From  </Text>
               </View> 
               <View style={styles.photo}>
                   
@@ -96,11 +79,7 @@ const SignUpPageTwo =()=> {
                          
               </View>
                                  
-      </View>
-      
-            
-
-         
+      </View>  
     
   )
 }}
@@ -108,18 +87,17 @@ const SignUpPageTwo =()=> {
 const styles = StyleSheet.create( {
   container: {
     flex: 0.75,
-    backgroundColor: 'white',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    padding:10,
-    marginTop:180,
+    padding:15,
+    marginTop:120,
     
   },
   photo:{
     alignItems:'center',
-    marginTop:20,
+    marginTop:30,
     flexDirection:'row',
-    marginBottom:70,
   },
 });
-export default SignUpPageTwo
+export default Login

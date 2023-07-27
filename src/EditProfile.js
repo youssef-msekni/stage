@@ -1,12 +1,22 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Text, View, StyleSheet, Button,Alert,Image,ScrollView,TextInput } from 'react-native';
 import { Ionicons,FontAwesome,Feather  } from '@expo/vector-icons'; 
+import Settings from './settings';
 const EditProfile = () => {
+    
+     const [ShowSettings, setShowSettings] = useState(false);
+   const handleSettingsPress = () => {
+        setShowSettings(true);
+  };
+  if (ShowSettings){
+        return <Settings/>;
+    }
+    else{
     return(
 
       <ScrollView style={styles.container}>
                 <View style={{flexDirection:'row',marginTop:10}}>
-                    <Ionicons onPress={()=>Alert.alert('go back to Topic page')} name="chevron-back" size={30} color="black" style={{marginTop:3}} />
+                    <Ionicons onPress={handleSettingsPress} name="chevron-back" size={30} color="black" style={{marginTop:3}} />
                     <Text style={{fontSize:26,marginStart:110}}>Edit Profile</Text>
                     <FontAwesome onPress={()=>Alert.alert('Search')} name="search" size={30} color="black" style={{ marginLeft:70 }} />
                     <Ionicons onPress={()=>Alert.alert('Notification')} name="md-notifications-outline" size={30} color="black" style={{ marginHorizontal:10 }} />
@@ -123,7 +133,7 @@ const EditProfile = () => {
                 
         </ScrollView>
     )
-}
+}}
 const styles = StyleSheet.create({
   container:{
         flex:1,
